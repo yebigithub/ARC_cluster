@@ -2,7 +2,6 @@
 Sample Rscript and slurm files to use ARC in Virginia Tech
 
 
-
 ## Copy single file:
 scp test.R urid@tinkercliffs1.arc.vt.edu:/folder/position
 
@@ -23,8 +22,8 @@ nano .bash_profile
 export TIN1=yebi@tinkercliffs1.arc.vt.edu
 source .bash_profile
 ```
-1.1 (Works better) 
-	click link: https://ood.arc.vt.edu/pun/sys/dashboard/  
+1.1 (Works better)  
+	click **OnDemand** link: https://ood.arc.vt.edu/pun/sys/dashboard/  
 	On the top: "Files" --> "HomeDirectory" --> "Open in Terminal"  
 	Then you will go to the terminal window.  
 	
@@ -132,3 +131,7 @@ Different methods can fulfile different purposes.
 1. Method1: mclapply
 	ACR_parallel_mcapply.R
 2. Method2: foreach
+
+## Method to reach your allocation
+
+OnDemand --> Clusters --> Cascades Shell Access
