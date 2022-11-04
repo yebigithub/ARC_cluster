@@ -14,7 +14,9 @@ scp -r urFolerName
 ### Step1
 1. (Alternative) 
 	Log into your thinkerclffs account via terminal 
+	
 	ssh urid@tinkercliffs1.arc.vt.edu or
+	
  	urid@tinkercliffs2.arc.vt.edu
 	
 	#### Command lines to set $TIN1 and $TIN2 in environment.
@@ -25,8 +27,11 @@ source .bash_profile
 ```
 1.1 (Works better) 
 	click link: https://ood.arc.vt.edu/pun/sys/dashboard/
+	
 	On the top: "Files" --> "HomeDirectory" --> "Open in Terminal"
+	
 	Then you will go to the terminal window.
+	
 
 ### Step2
 2. module list 
