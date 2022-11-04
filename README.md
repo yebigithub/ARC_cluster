@@ -7,12 +7,13 @@ Sample Rscript and slurm files to use ARC in Virginia Tech
 scp test.R urid@tinkercliffs1.arc.vt.edu:/folder/position
 
 ## Copy whole folder: 
-scp -r
+scp -r urFolerName
 
 
 ## Steps to install and use R in ARC.
 ### Step1
-1. Log into your thinkerclffs account via terminal 
+1. (Alternative) 
+	Log into your thinkerclffs account via terminal 
 	ssh urid@tinkercliffs1.arc.vt.edu or
  	urid@tinkercliffs2.arc.vt.edu
 	
@@ -22,20 +23,26 @@ nano .bash_profile
 export TIN1=yebi@tinkercliffs1.arc.vt.edu
 source .bash_profile
 ```
+1.1 (Works better) 
+	click link: https://ood.arc.vt.edu/pun/sys/dashboard/
+	On the top: "Files" --> "HomeDirectory" --> "Open in Terminal"
+	Then you will go to the terminal window.
 
 ### Step2
-2. Module list 
+2. module list 
 	to see how many modules you already have
 ### Step3
-3. Module spider singularity 
+3. module spider singularity 
 	to find the specific version of singularity
 ### Step4
-4. Try module load containers/singularity/3.8.5 
+4. Run "module load containers/singularity/3.8.5" 
 	Then “module list” to see if singularity is there or not.
 ### Step5
-5. Nano run_R.sh as following.
+5. nano run_R.sh as following.
 
 ## Sample slurm file
+- This file will let cluster system know how much resource you plan to use for running your code.
+- Adjust N, n, t, A, according to your own use.
 ```
 #!/bin/bash
 
@@ -72,7 +79,7 @@ exit;
 ```
 
 ## Step6
-6. Nano hp_mpg.R as following:
+6. nano hp_mpg.R as following:
 
 ## Sample Rscript
 ```
@@ -95,18 +102,20 @@ scancel jobid
 9. ls | wc -l
 
 
-
 ## Tips for farmcpu
 
 1. Be careful about GAPIT download.
 ```
+#Select specific R version
 .libPaths()
 .libPaths(.libPaths()[3:1])
 
+#install packages from CRAN
+install.packages("poolr", repos = "http://cran.us.r-project.org")
+
+#install packages from github
 install.packages("devtools", repos = "http://cran.us.r-project.org")
-
 devtools::install_github("jiabowang/GAPIT3",force=TRUE)
-
 library(GAPIT3)
 ```
 
@@ -117,8 +126,8 @@ library(GAPIT3)
 3. 'liji_par1.R' and 'liji_part1.sh' files are sample files for real data. 
 
 
-## For parallele
-Different methods can fulfile different purposes. hhhh
+## For parallele (still in testing)
+Different methods can fulfile different purposes.
 1. Method1: mclapply
 	ACR_parallel_mcapply.R
 2. Method2: foreach
