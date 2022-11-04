@@ -11,7 +11,7 @@ scp -r urFolerName
 
 ## Steps to install and use R in ARC.
 ### Step1
-1. (Alternative) 
+1. (Alternative)  
 	Log into your thinkerclffs account via terminal  
 	ssh urid@tinkercliffs1.arc.vt.edu or  
 	urid@tinkercliffs2.arc.vt.edu
