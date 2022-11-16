@@ -95,8 +95,9 @@ ggsave(file="hp_mpg.pdf",p)
 7. Then just “sbatch run_R.sh” and check results later.
 
 ## Step8
-8. Run squeue -u yebi
-scancel jobid
+8. Run '''squeue -u yebi''' to check status of your current jobs  
+'''scancel jobid''' to cancel specific job  
+''squeue -u''' can see all the users  
 
 ## Step9
 9. ls | wc -l
