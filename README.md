@@ -2,15 +2,15 @@
 Sample Rscript and slurm files to use ARC in Virginia Tech
 
 ## How to update R codes and files from local computer to cluster.
-### Copy single file:
+#### Copy single file:
 scp test.R urid@tinkercliffs1.arc.vt.edu:/folder/position
 
-### Copy whole folder: 
+#### Copy whole folder: 
 scp -r urFolerName
 
 ************************************************************************************************************************
 ## Steps to install and use R in ARC.
-### Step1
+#### Step1
 1. (Alternative)  
 	Log into your thinkerclffs account via terminal  
 	ssh urid@tinkercliffs1.arc.vt.edu or  
@@ -28,22 +28,21 @@ source .bash_profile
 	- Then you will go to the terminal window.  
 	
 
-### Step2 (follow this link: https://www.docs.arc.vt.edu/software/r.html)
+#### Step2 (follow this link: https://www.docs.arc.vt.edu/software/r.html)
 2. module list 
 	- To see how many modules you already have.
 	- In the first time, singularity will not be there. So we will use step3-4 to load it.
-### Step3
+#### Step3
 3. module spider singularity 
 	- to find the specific version of singularity
-### Step4
+#### Step4
 4. Run "module load containers/singularity/3.8.5" 
 	- Then “module list” to see if singularity is there or not.
-### Step5
+#### Step5
 5. nano run_R.sh as following.
 	- To create your own sh file. This will be used for cluster terminal to run your R script.
-## Sample slurm file
-- This file will let cluster system know how much resource you plan to use for running your code.
-- Adjust N, n, t, A, according to your own use.
+	- This file will let cluster system know how much resource you plan to use for running your code.
+	- Adjust N, n, t, A, according to your own use.
 ```
 #!/bin/bash
 
