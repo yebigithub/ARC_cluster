@@ -11,7 +11,7 @@ scp -r urFolerName
 ************************************************************************************************************************
 ## Steps to install and use R in ARC.
 ### Step1
-##### 1. (Alternative)  
+##### Method1 to log in (Alternative)  
 ##### Log into your thinkerclffs account via terminal  
 	```
 	ssh urid@tinkercliffs1.arc.vt.edu # or 
@@ -23,13 +23,14 @@ scp -r urFolerName
 	export TIN1=yebi@tinkercliffs1.arc.vt.edu
 	source .bash_profile
 	```
-##### 1.1 (Works better)  
+##### Method 2 to log in (Works better)  
 - click **OnDemand** link: https://ood.arc.vt.edu/pun/sys/dashboard/  
 - On the top: "Files" --> "HomeDirectory" --> "Open in Terminal"  
 - Then you will go to the terminal window.  
 	
 
-### Step2 (follow this link: https://www.docs.arc.vt.edu/software/r.html)
+### Step2 
+*(follow this link: https://www.docs.arc.vt.edu/software/r.html)*
 ```
 module list 
 ```
