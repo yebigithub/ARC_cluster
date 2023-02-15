@@ -1,14 +1,14 @@
 # ARC_cluster
 Sample Rscript and slurm files to use ARC in Virginia Tech
 
-
-## Copy single file:
+## How to update R codes and files from local computer to cluster.
+### Copy single file:
 scp test.R urid@tinkercliffs1.arc.vt.edu:/folder/position
 
-## Copy whole folder: 
+### Copy whole folder: 
 scp -r urFolerName
 
-
+######################################
 ## Steps to install and use R in ARC.
 ### Step1
 1. (Alternative)  
@@ -23,9 +23,9 @@ export TIN1=yebi@tinkercliffs1.arc.vt.edu
 source .bash_profile
 ```
 1.1 (Works better)  
-	click **OnDemand** link: https://ood.arc.vt.edu/pun/sys/dashboard/  
-	On the top: "Files" --> "HomeDirectory" --> "Open in Terminal"  
-	Then you will go to the terminal window.  
+	- click **OnDemand** link: https://ood.arc.vt.edu/pun/sys/dashboard/  
+	- On the top: "Files" --> "HomeDirectory" --> "Open in Terminal"  
+	- Then you will go to the terminal window.  
 	
 
 ### Step2 (follow this link: https://www.docs.arc.vt.edu/software/r.html)
@@ -34,13 +34,13 @@ source .bash_profile
 	- In the first time, singularity will not be there. So we will use step3-4 to load it.
 ### Step3
 3. module spider singularity 
-	to find the specific version of singularity
+	- to find the specific version of singularity
 ### Step4
 4. Run "module load containers/singularity/3.8.5" 
-	Then “module list” to see if singularity is there or not.
+	- Then “module list” to see if singularity is there or not.
 ### Step5
 5. nano run_R.sh as following.
-
+	- To create your own sh file. This will be used for cluster terminal to run your R script.
 ## Sample slurm file
 - This file will let cluster system know how much resource you plan to use for running your code.
 - Adjust N, n, t, A, according to your own use.
@@ -81,7 +81,7 @@ exit;
 
 ## Step6
 6. nano hp_mpg.R as following:
-
+	- This is your own R script.
 ## Sample Rscript
 ```
 ## hp_mpg.R
