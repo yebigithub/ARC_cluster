@@ -2,50 +2,50 @@
 Sample Rscript and slurm files to use ARC in Virginia Tech
 
 ## How to update R codes and files from local computer to cluster.
-### Copy single file:
+##### Copy single file:
 scp test.R urid@tinkercliffs1.arc.vt.edu:/folder/position
 
-### Copy whole folder: 
+##### Copy whole folder: 
 scp -r urFolerName
 
 ************************************************************************************************************************
 ## Steps to install and use R in ARC.
-#### Step1
+### Step1
 ##### 1. (Alternative)  
-	#### Log into your thinkerclffs account via terminal  
+##### Log into your thinkerclffs account via terminal  
 	```
 	ssh urid@tinkercliffs1.arc.vt.edu # or 
 	ssh urid@tinkercliffs2.arc.vt.edu
 	```
-	#### Command lines to set $TIN1 and $TIN2 in environment.
+##### Command lines to set $TIN1 and $TIN2 in environment.
 	```
 	nano .bash_profile
 	export TIN1=yebi@tinkercliffs1.arc.vt.edu
 	source .bash_profile
 	```
 ##### 1.1 (Works better)  
-	- click **OnDemand** link: https://ood.arc.vt.edu/pun/sys/dashboard/  
-	- On the top: "Files" --> "HomeDirectory" --> "Open in Terminal"  
-	- Then you will go to the terminal window.  
+- click **OnDemand** link: https://ood.arc.vt.edu/pun/sys/dashboard/  
+- On the top: "Files" --> "HomeDirectory" --> "Open in Terminal"  
+- Then you will go to the terminal window.  
 	
 
-#### Step2 (follow this link: https://www.docs.arc.vt.edu/software/r.html)
+### Step2 (follow this link: https://www.docs.arc.vt.edu/software/r.html)
 ```
 module list 
 ```
-	- To see how many modules you already have.
-	- In the first time, singularity will not be there. So we will use step3-4 to load it.
-#### Step3
+- To see how many modules you already have.
+- In the first time, singularity will not be there. So we will use step3-4 to load it.
+### Step3
 ```
 module spider singularity 
 ```
 - to find the specific version of singularity
-#### Step4
+### Step4
 ``` 
 module load containers/singularity/3.8.5
 ```
 	- Then “module list” to see if singularity is there or not.
-#### Step5
+### Step5
 ```
 nano run_R.sh
 ```
@@ -87,11 +87,11 @@ singularity exec --bind=/work,/projects \
 exit;
 ```
 
-## Step6
+### Step6
 ``` 
 nano hp_mpg.R
 ```
-	- This is your own R script.
+- This is your own R script.
 
 ```
 ## hp_mpg.R
@@ -102,15 +102,15 @@ p <- ggplot(data=mtcars, aes(x=hp, y=mpg)) + geom_line()
 ggsave(file="hp_mpg.pdf",p)
 ```
 
-## Step7
+### Step7
 7. Then just “sbatch run_R.sh” and check results later.
 
-## Step8
+### Step8
 8. Run `squeue -u yebi` to check status of your current jobs  
 `scancel jobid` to cancel specific job  
 `squeue -u` can see all the users  
 
-## Step9
+### Step9
 9. ls | wc -l
 
 ********************************************************************************************************************************************************
