@@ -28,7 +28,7 @@ source .bash_profile
 	Then you will go to the terminal window.  
 	
 
-### Step2
+### Step2 (follow this link: https://www.docs.arc.vt.edu/software/r.html)
 2. module list 
 	to see how many modules you already have
 ### Step3
