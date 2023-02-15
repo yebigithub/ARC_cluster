@@ -51,8 +51,8 @@ module load containers/singularity/3.8.5
 nano run_R.sh
 ```
 - To create your own sh file. This will be used for cluster terminal to run your R script.
-- This file will let cluster system know how much resource you plan to use for running your code.
-- Adjust N, n, t, A, according to your own use.
+	- This file will let cluster system know how much resource you plan to use for running your code.
+	- Adjust N, n, t, A, according to your own use.
 ```
 #!/bin/bash
 
@@ -104,16 +104,17 @@ ggsave(file="hp_mpg.pdf",p)
 ```
 
 ### Step7
-7. Then just “sbatch run_R.sh” and check results later.
+```sbatch run_R.sh```
+- Run this sh file in system and check results later.
 
 ### Step8
-8. Run `squeue -u yebi` to check status of your current jobs  
+`squeue -u yebi` to check status of your current jobs  
 `scancel jobid` to cancel specific job  
 `squeue -u` can see all the users  
 
 ### Step9
-9. ls | wc -l
-
+`ls | wc -l`
+- To see how many files you produced.
 ********************************************************************************************************************************************************
 ## Tips for farmcpu
 
