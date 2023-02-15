@@ -8,7 +8,7 @@ scp test.R urid@tinkercliffs1.arc.vt.edu:/folder/position
 ### Copy whole folder: 
 scp -r urFolerName
 
-######################################
+************************************************************************************************************************
 ## Steps to install and use R in ARC.
 ### Step1
 1. (Alternative)  
@@ -82,7 +82,7 @@ exit;
 ## Step6
 6. nano hp_mpg.R as following:
 	- This is your own R script.
-## Sample Rscript
+
 ```
 ## hp_mpg.R
 ## R script for generating a plot of mpg vs hp
@@ -103,7 +103,7 @@ ggsave(file="hp_mpg.pdf",p)
 ## Step9
 9. ls | wc -l
 
-
+********************************************************************************************************************************************************
 ## Tips for farmcpu
 
 1. Be careful about GAPIT download.
