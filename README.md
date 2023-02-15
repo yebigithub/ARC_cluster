@@ -2,31 +2,31 @@
 Sample Rscript and slurm files to use ARC in Virginia Tech
 
 ## How to update R codes and files from local computer to cluster.
-##### Copy single file:
-scp test.R urid@tinkercliffs1.arc.vt.edu:/folder/position
+- Copy single file:
+```scp test.R urid@tinkercliffs1.arc.vt.edu:/folder/position```
 
-##### Copy whole folder: 
-scp -r urFolerName
+- Copy whole folder: 
+```scp -r urFolerName```
 
 ************************************************************************************************************************
 ## Steps to install and use R in ARC.
 ### Step1
-##### Method1 to log in (Alternative)  
-##### Log into your thinkerclffs account via terminal  
+- Method1 to log in (Alternative)  
+	- Log into your thinkerclffs account via terminal  
 	```
 	ssh urid@tinkercliffs1.arc.vt.edu # or 
 	ssh urid@tinkercliffs2.arc.vt.edu
 	```
-##### Command lines to set $TIN1 and $TIN2 in environment.
+- Command lines to set $TIN1 and $TIN2 in environment.
 	```
 	nano .bash_profile
 	export TIN1=yebi@tinkercliffs1.arc.vt.edu
 	source .bash_profile
 	```
-##### Method 2 to log in (Works better)  
-- click **OnDemand** link: https://ood.arc.vt.edu/pun/sys/dashboard/  
-- On the top: "Files" --> "HomeDirectory" --> "Open in Terminal"  
-- Then you will go to the terminal window.  
+- Method 2 to log in (Works better)  
+	- click **OnDemand** link: https://ood.arc.vt.edu/pun/sys/dashboard/  
+	- On the top: "Files" --> "HomeDirectory" --> "Open in Terminal"  
+	- Then you will go to the terminal window.  
 	
 
 ### Step2 
@@ -45,14 +45,14 @@ module spider singularity
 ``` 
 module load containers/singularity/3.8.5
 ```
-	- Then “module list” to see if singularity is there or not.
+- Then “module list” to see if singularity is there or not.
 ### Step5
 ```
 nano run_R.sh
 ```
-	- To create your own sh file. This will be used for cluster terminal to run your R script.
-	- This file will let cluster system know how much resource you plan to use for running your code.
-	- Adjust N, n, t, A, according to your own use.
+- To create your own sh file. This will be used for cluster terminal to run your R script.
+- This file will let cluster system know how much resource you plan to use for running your code.
+- Adjust N, n, t, A, according to your own use.
 ```
 #!/bin/bash
 
