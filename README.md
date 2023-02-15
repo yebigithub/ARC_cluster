@@ -30,7 +30,8 @@ source .bash_profile
 
 ### Step2 (follow this link: https://www.docs.arc.vt.edu/software/r.html)
 2. module list 
-	to see how many modules you already have
+	- To see how many modules you already have.
+	- In the first time, singularity will not be there. So we will use step3-4 to load it.
 ### Step3
 3. module spider singularity 
 	to find the specific version of singularity
