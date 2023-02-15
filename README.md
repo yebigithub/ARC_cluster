@@ -11,7 +11,7 @@ Sample Rscript and slurm files to use ARC in Virginia Tech
 ************************************************************************************************************************
 ## Steps to install and use R in ARC.
 ### Step1
-- Method1 to log in (Alternative)  
+- Method 1 to log in (Alternative)  
 	- Log into your thinkerclffs account via terminal  
 	```
 	ssh urid@tinkercliffs1.arc.vt.edu # you can use 1 or 2
@@ -24,7 +24,7 @@ Sample Rscript and slurm files to use ARC in Virginia Tech
 	source .bash_profile 
 	```
 - Method 2 to log in (Works better)  
-	- click **OnDemand** link: https://ood.arc.vt.edu/pun/sys/dashboard/  
+	- Click **OnDemand** link: https://ood.arc.vt.edu/pun/sys/dashboard/  
 	- On the top: "Files" --> "HomeDirectory" --> "Open in Terminal"  
 	- Then you will go to the terminal window.  
 	
@@ -141,7 +141,7 @@ library(GAPIT3)
 3. 'liji_par1.R' and 'liji_part1.sh' files are sample files for real data. 
 
 
-## For parallele (still in testing)
+## For parallele (still in testing, doesn't work for long time...)
 Different methods can fulfile different purposes.
 1. Method1: mclapply
 	ACR_parallel_mcapply.R
