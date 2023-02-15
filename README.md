@@ -14,14 +14,14 @@ Sample Rscript and slurm files to use ARC in Virginia Tech
 - Method1 to log in (Alternative)  
 	- Log into your thinkerclffs account via terminal  
 	```
-	ssh urid@tinkercliffs1.arc.vt.edu # or 
+	ssh urid@tinkercliffs1.arc.vt.edu # you can use 1 or 2
 	ssh urid@tinkercliffs2.arc.vt.edu
 	```
-- Command lines to set $TIN1 and $TIN2 in environment.
+	- Command lines to set $TIN1 and $TIN2 in environment. After that you just need to use $TIN1 or $TIN2 to log in, no need to type in the long email address any more.
 	```
 	nano .bash_profile
 	export TIN1=yebi@tinkercliffs1.arc.vt.edu
-	source .bash_profile
+	source .bash_profile 
 	```
 - Method 2 to log in (Works better)  
 	- click **OnDemand** link: https://ood.arc.vt.edu/pun/sys/dashboard/  
@@ -34,19 +34,21 @@ Sample Rscript and slurm files to use ARC in Virginia Tech
 ```
 module list 
 ```
-- To see how many modules you already have.
+- To see how many modules you already have, especially check if singularity with specific version is there or not.
 - In the first time, singularity will not be there. So we will use step3-4 to load it.
 ### Step3
 ```
 module spider singularity 
 ```
-- to find the specific version of singularity
+- to find the specific version of singularity exist in the module system.
 ### Step4
 ``` 
-module load containers/singularity/3.8.5
+module load containers/singularity/3.8.5 #To load and install R in your own system.
+module list #to check if singularity is there or not.
 ```
-- Then “module list” to see if singularity is there or not.
-### Step5
+- In short, singularity is kind of a box of different softwares, which of course includes R, thus to install R, we just need to install singularity into our system.
+
+### Step5 (From here we are trying one Rscript example)
 ```
 nano run_R.sh
 ```
@@ -116,8 +118,7 @@ ggsave(file="hp_mpg.pdf",p)
 `ls | wc -l`
 - To see how many files you produced.
 ********************************************************************************************************************************************************
-## Tips for farmcpu
-
+## Tips for myself (FarmCPU usage)
 1. Be careful about GAPIT download.
 ```
 #Select specific R version
