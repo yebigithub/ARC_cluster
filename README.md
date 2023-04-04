@@ -19,6 +19,7 @@ Sample Rscript and slurm files to use ARC in Virginia Tech
 	ssh $CAS1 ### used for login node.
 	```
 	- Command lines to set $TIN1 and $TIN2 in environment. After that you just need to use $TIN1 or $TIN2 to log in, no need to type in the long email address any more.
+	- [VT_ARC-QuickSetupGuide](https://github.com/yebigithub/ARC_cluster/blob/main/VT_ARC-QuickSetupGuide.pdf) This file is pretty useful for starting your jupyter notebook in ARC, thanks for my classmate's help in Deep Learning.
 	```
 	nano .bash_profile
 	export TIN1=yebi@tinkercliffs1.arc.vt.edu
