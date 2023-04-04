@@ -16,6 +16,7 @@ Sample Rscript and slurm files to use ARC in Virginia Tech
 	```
 	ssh urid@tinkercliffs1.arc.vt.edu # you can use 1 or 2
 	ssh urid@tinkercliffs2.arc.vt.edu
+	ssh $CAS1 ### used for login node.
 	```
 	- Command lines to set $TIN1 and $TIN2 in environment. After that you just need to use $TIN1 or $TIN2 to log in, no need to type in the long email address any more.
 	```
