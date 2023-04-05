@@ -1,6 +1,6 @@
 # ARC_cluster
 - Sample Rscript and slurm files to use ARC in Virginia Tech
-- How to use jupyter notebook in ARC. 
+- How to use Jupyter notebook on ARC. 
 
 ## How to update R codes and files from local computer to cluster.
 - Copy single file:
@@ -122,7 +122,8 @@ ggsave(file="hp_mpg.pdf",p)
 - To see how many files you produced.
 ********************************************************************************************************************************************************
 ## Updated!!! How to use Jupyter Notebook in ARC. 
-	- [VT_ARC-QuickSetupGuide](https://github.com/yebigithub/ARC_cluster/blob/main/VT_ARC-QuickSetupGuide.pdf) This file is pretty useful for starting your jupyter notebook in ARC, thanks for my classmate's help in Deep Learning.
+- [VT_ARC-QuickSetupGuide](https://github.com/yebigithub/ARC_cluster/blob/main/VT_ARC-QuickSetupGuide.pdf)  
+This file is pretty useful for starting your jupyter notebook in ARC, thanks for my classmate's help in Deep Learning.
 
 ## Tips for myself (FarmCPU usage)
 1. Be careful about GAPIT download.
