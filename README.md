@@ -7,7 +7,7 @@
 ```scp test.R urid@tinkercliffs1.arc.vt.edu:/folder/position```
 
 - Copy whole folder: 
-```scp -r urFolerName```
+```scp -r urFolerName urid@tinkercliffs1.arc.vt.edu:/folder/position```
 
 ************************************************************************************************************************
 ## Steps to install and use R in ARC.
