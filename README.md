@@ -147,6 +147,7 @@ library(GAPIT3)
 
 3. 'liji_par1.R' and 'liji_part1.sh' files are sample files for real data. 
 
+4. "quota" to check your current storage usage
 
 ## For parallele (still in testing, doesn't work for long time...)
 Different methods can fulfile different purposes.
