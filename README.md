@@ -1,6 +1,8 @@
 # ARC_cluster
 - Sample Rscript and slurm files to use ARC in Virginia Tech
 - How to use Jupyter notebook on ARC. 
+- How to install tensorflow-gpu on ARC.
+- How to install Pytorch-cuda on ARC.
 
 ## How to update R codes and files from local computer to cluster.
 - Copy single file:
@@ -121,9 +123,62 @@ ggsave(file="hp_mpg.pdf",p)
 `ls | wc -l`
 - To see how many files you produced.
 ********************************************************************************************************************************************************
+
+
 ## Updated!!! How to use Jupyter Notebook in ARC. 
 - [VT_ARC-QuickSetupGuide](https://github.com/yebigithub/ARC_cluster/blob/main/VT_ARC-QuickSetupGuide.pdf)  
 This file is pretty useful for starting your jupyter notebook in ARC, thanks for my classmate's help in Deep Learning.
+
+```
+interact --account=ece6524-spring2023 --partition=a100_dev_q -N 1 -n 12 --gres=gpu:1
+
+
+
+conda install -c conda-forge cudatoolkit=11.8.0
+python3 -m pip install nvidia-cudnn-cu11==8.6.0.163 tensorflow==2.12.*
+mkdir -p $CONDA_PREFIX/etc/conda/activate.d
+echo 'CUDNN_PATH=$(dirname $(python -c "import nvidia.cudnn;print(nvidia.cudnn.__file__)"))' >> $CONDA_PREFIX/etc/conda/activate.d/env_vars.sh
+echo 'export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CONDA_PREFIX/lib/:$CUDNN_PATH/lib' >> $CONDA_PREFIX/etc/conda/activate.d/env_vars.sh
+source $CONDA_PREFIX/etc/conda/activate.d/env_vars.sh
+# Verify install:
+python3 -c "import tensorflow as tf; print(tf.config.list_physical_devices('GPU'))"
+
+
+###############################################################
+module load cuda-latest/toolkit/11.4.2
+##To check gpu status
+nvidia-smi
+pip install nvidia-cudnn-cu11==8.6.0.163
+
+mkdir -p $CONDA_PREFIX/etc/conda/activate.d
+
+echo 'CUDNN_PATH=$(dirname $(python -c "import nvidia.cudnn;print(nvidia.cudnn.__file__)"))' >> $CONDA_PREFIX/etc/conda/activate.d/env_vars.sh
+
+echo 'export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CONDA_PREFIX/lib/:$CUDNN_PATH/lib' >> $CONDA_PREFIX/etc/conda/activate.d/env_vars.sh
+
+source $CONDA_PREFIX/etc/conda/activate.d/env_vars.sh
+
+pip install tensorflow==2.12
+
+###to delete unwanted jupyter kernel
+jupyter kernelspec list
+jupyter kernelspec uninstall dl_gpu
+
+##code to check if GPU tensorflow is installed successfully.
+Module load Anaconda3/2020.11
+Module list
+Module load cuda….
+Nvidia-sim
+Source activate DL_gpu
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+##tips: if dones’t run, may need to install more packages. Just follow the instructions.
+
+##To install pytorch-cuda
+python3 -c "import tensorflow as tf; print(tf.config.list_physical_devices('GPU'))"
+
+##To test if torch cuda works
+python -c “import torch; print(torch.cuda.is_available())”
+```
 
 ## Tips for myself (FarmCPU usage)
 1. Be careful about GAPIT download.
@@ -155,6 +210,3 @@ Different methods can fulfile different purposes.
 	ACR_parallel_mcapply.R
 2. Method2: foreach
 
-## Method to reach your allocation
-
-OnDemand --> Clusters --> Cascades Shell Access
