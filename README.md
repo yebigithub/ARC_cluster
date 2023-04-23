@@ -165,11 +165,11 @@ jupyter kernelspec list
 jupyter kernelspec uninstall dl_gpu
 
 ##code to check if GPU tensorflow is installed successfully.
-Module load Anaconda3/2020.11
-Module list
-Module load cuda….
-Nvidia-sim
-Source activate DL_gpu
+module load Anaconda3/2020.11
+module list
+module load cuda….
+nvidia-sim
+source activate DL_gpu
 pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
 ##tips: if dones’t run, may need to install more packages. Just follow the instructions.
 
