@@ -210,3 +210,5 @@ Different methods can fulfile different purposes.
 	ACR_parallel_mcapply.R
 2. Method2: foreach
 
+## Ref
+https://medium.com/mlearning-ai/install-tensorflow-on-mac-m1-m2-with-gpu-support-c404c6cfb580
