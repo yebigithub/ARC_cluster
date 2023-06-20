@@ -42,8 +42,9 @@ module list
 - To see how many modules you already have, especially check if singularity with specific version is there or not.
 - In the first time, singularity will not be there. So we will use step3-4 to load it.
 ### Step3
+updated 2023, new version of singularity.
 ```
-module spider singularity 
+module load containers/singularity/apptainer-wrapper
 ```
 - to find the specific version of singularity exist in the module system.
 ### Step4
