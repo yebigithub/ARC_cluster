@@ -5,6 +5,8 @@
 ## environment & variable setup
 ####### job customization
 #SBATCH --job-name="liji_part"
+#SBATCH --mail-type=end
+#SBATCH --mail-user=yebi@vt.edu
 #SBATCH -N 5
 #SBATCH -n 20
 #SBATCH -t 3:00:00
