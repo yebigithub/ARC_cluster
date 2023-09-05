@@ -1,3 +1,4 @@
+Workshop from ARC. https://www.docs.arc.vt.edu/usage/workshops.html  
 # ARC_cluster
 - Sample Rscript and slurm files to use ARC in Virginia Tech
 - How to use Jupyter notebook on ARC. 
