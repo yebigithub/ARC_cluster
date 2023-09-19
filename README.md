@@ -223,3 +223,4 @@ Different methods can fulfile different purposes.
 
 ## Ref
 https://medium.com/mlearning-ai/install-tensorflow-on-mac-m1-m2-with-gpu-support-c404c6cfb580
+https://www.nrel.gov/hpc/eagle-interactive-jobs.html
