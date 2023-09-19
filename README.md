@@ -34,7 +34,12 @@ Workshop from ARC. https://www.docs.arc.vt.edu/usage/workshops.html
 	- On the top: "Files" --> "HomeDirectory" --> "Open in Terminal"  
 	- Then you will go to the terminal window.  
 	
-
+- Method 3
+	```
+	ssh urid@tinkercliffs1.arc.vt.edu
+	salloc --account=yourallocation --nodes=2 --ntasks-per-node=4 --cpus-per-task=8
+	interact A yourallocation
+	```	
 ### Step2 
 *(follow this link: https://www.docs.arc.vt.edu/software/r.html)*
 ```
