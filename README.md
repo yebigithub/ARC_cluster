@@ -147,8 +147,10 @@ interact --account=multiomicquantgen --partition=a100_normal_q -N 1 -n 12 --gres
 module load Anaconda3/2020.11
 module list ## make sure cuda is loaded if you are using the GPU
 nvidia-smi  ## make sure you see GPUs
-conda create -n tf_gpu
+conda create -n tf_gpu python==3.9
 source activate tf_gpu ## easy!
+
+python -m pip install tensorflow[and-cuda]
 
 python3 -c "import tensorflow as tf; print(tf.config.list_physical_devices('GPU'))"
 python3 -c "import tensorflow as tf; print('Num of GPU:', len(tf.config.list_physical_devices('GPU')))"
