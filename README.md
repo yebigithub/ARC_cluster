@@ -149,11 +149,15 @@ module list ## make sure cuda is loaded if you are using the GPU
 nvidia-smi  ## make sure you see GPUs
 conda create -n tf_gpu python==3.9
 source activate tf_gpu ## easy!
+#then pip install needed packages.
 
 python -m pip install tensorflow[and-cuda]
 
 python3 -c "import tensorflow as tf; print(tf.config.list_physical_devices('GPU'))"
 python3 -c "import tensorflow as tf; print('Num of GPU:', len(tf.config.list_physical_devices('GPU')))"
+```
+```
+jobload jobid # To check ur resource usage.
 ```
 
 ```
