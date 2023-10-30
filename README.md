@@ -140,9 +140,22 @@ ggsave(file="hp_mpg.pdf",p)
 - [VT_ARC-QuickSetupGuide](https://github.com/yebigithub/ARC_cluster/blob/main/VT_ARC-QuickSetupGuide.pdf)  
 This file is pretty useful for starting your jupyter notebook in ARC, thanks for my classmate's help in Deep Learning.
 
+### Install and using Tensorflow GPU
+```
+## on TC for a100 nodes:
+interact --account=multiomicquantgen --partition=a100_normal_q -N 1 -n 12 --gres=gpu:1
+module load Anaconda3/2020.11
+module list ## make sure cuda is loaded if you are using the GPU
+nvidia-smi  ## make sure you see GPUs
+conda create -n tf_gpu
+source activate tf_gpu ## easy!
+
+python3 -c "import tensorflow as tf; print(tf.config.list_physical_devices('GPU'))"
+python3 -c "import tensorflow as tf; print('Num of GPU:', len(tf.config.list_physical_devices('GPU')))"
+```
+
 ```
 interact --account=ece6524-spring2023 --partition=a100_dev_q -N 1 -n 12 --gres=gpu:1
-
 
 
 conda install -c conda-forge cudatoolkit=11.8.0
