@@ -158,6 +158,7 @@ python3 -c "import tensorflow as tf; print('Num of GPU:', len(tf.config.list_phy
 ```
 ```
 jobload jobid # To check ur resource usage.
+squeue -u yebi -o "%j" # To check job full name.
 ```
 
 ```
