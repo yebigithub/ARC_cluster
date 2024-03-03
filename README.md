@@ -3,14 +3,11 @@
 Workshop from ARC. https://www.docs.arc.vt.edu/usage/workshops.html  
 
 ## Cotent
-- Steps to install and use R in ARC.
-- How to use Jupyter notebook on ARC. 
-- How to install tensorflow-gpu on ARC.
-- How to install Pytorch-cuda on ARC.
+- [Steps to install and use R in ARC](#steps-to-install-and-use-r-in-arc).
+- [How to use Jupyter notebook on ARC](#how-to-use-jupyter-notebook-on-arc)
+- [How to install tensorflow-gpu on ARC](#how-to-install-tensorflow-gpu-on-arc)
+- [How to install Pytorch-cuda on ARC.](#how-to-install-pytorch-cuda-on-arc)
 
-
-
-************************************************************************************************************************
 ## Steps to install and use R in ARC.
 ### Step1
 - Method 1 to log in (Alternative)  
