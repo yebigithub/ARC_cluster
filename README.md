@@ -1,16 +1,14 @@
-Workshop from ARC. https://www.docs.arc.vt.edu/usage/workshops.html  
+
 # ARC_cluster
-- Sample Rscript and slurm files to use ARC in Virginia Tech
+Workshop from ARC. https://www.docs.arc.vt.edu/usage/workshops.html  
+
+## Cotent
+- Steps to install and use R in ARC.
 - How to use Jupyter notebook on ARC. 
 - How to install tensorflow-gpu on ARC.
 - How to install Pytorch-cuda on ARC.
 
-## How to update R codes and files from local computer to cluster.
-- Copy single file:
-```scp test.R urid@tinkercliffs1.arc.vt.edu:/folder/position```
 
-- Copy whole folder: 
-```scp -r urFolerName urid@tinkercliffs1.arc.vt.edu:/folder/position```
 
 ************************************************************************************************************************
 ## Steps to install and use R in ARC.
@@ -64,7 +62,8 @@ module list #to check if singularity is there or not.
 ```
 - In short, singularity is kind of a box of different softwares, which of course includes R, thus to install R, we just need to install singularity into our system.
 
-### Step5 (From here we are trying one Rscript example)
+### Step5 
+(From here we are trying one Rscript example)
 ```
 nano run_R.sh
 ```
@@ -133,14 +132,21 @@ ggsave(file="hp_mpg.pdf",p)
 ### Step9
 `ls | wc -l`
 - To see how many files you produced.
-********************************************************************************************************************************************************
 
+```
+## How to update R codes and files from local computer to cluster.
+- Copy single file:
+```scp test.R urid@tinkercliffs1.arc.vt.edu:/folder/position```
 
-## Updated!!! How to use Jupyter Notebook in ARC. 
+- Copy whole folder: 
+```scp -r urFolerName urid@tinkercliffs1.arc.vt.edu:/folder/position```
+```
+
+## How to use Jupyter notebook on ARC. 
 - [VT_ARC-QuickSetupGuide](https://github.com/yebigithub/ARC_cluster/blob/main/VT_ARC-QuickSetupGuide.pdf)  
-This file is pretty useful for starting your jupyter notebook in ARC, thanks for my classmate's help in Deep Learning.
+This file is pretty useful for starting your jupyter notebook in ARC, thanks for the help from my peers in Deep Learning (2023 Fall ECE 6524)🌟🔥
 
-### Install and using Tensorflow GPU
+## How to install tensorflow-gpu on ARC.
 ```
 ## on TC for a100 nodes:
 interact --account=multiomicquantgen --partition=a100_normal_q -N 1 -n 12 --gres=gpu:1
@@ -153,48 +159,23 @@ source activate tf_gpu ## easy!
 
 python -m pip install tensorflow[and-cuda]
 
-python3 -c "import tensorflow as tf; print(tf.config.list_physical_devices('GPU'))"
-python3 -c "import tensorflow as tf; print('Num of GPU:', len(tf.config.list_physical_devices('GPU')))"
+python -c "import tensorflow as tf; print(tf.config.list_physical_devices('GPU'))"
+python -c "import tensorflow as tf; print('Num of GPU:', len(tf.config.list_physical_devices('GPU')))"
 ```
+
+```
+###to delete unwanted jupyter kernel
+jupyter kernelspec list
+jupyter kernelspec uninstall dl_gpu
+```
+
 ```
 jobload jobid # To check ur resource usage.
 squeue -u yebi -o "%j" # To check job full name.
 ```
 
+## How to install Pytorch-cuda on ARC.
 ```
-interact --account=ece6524-spring2023 --partition=a100_dev_q -N 1 -n 12 --gres=gpu:1
-
-
-conda install -c conda-forge cudatoolkit=11.8.0
-python3 -m pip install nvidia-cudnn-cu11==8.6.0.163 tensorflow==2.12.*
-mkdir -p $CONDA_PREFIX/etc/conda/activate.d
-echo 'CUDNN_PATH=$(dirname $(python -c "import nvidia.cudnn;print(nvidia.cudnn.__file__)"))' >> $CONDA_PREFIX/etc/conda/activate.d/env_vars.sh
-echo 'export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CONDA_PREFIX/lib/:$CUDNN_PATH/lib' >> $CONDA_PREFIX/etc/conda/activate.d/env_vars.sh
-source $CONDA_PREFIX/etc/conda/activate.d/env_vars.sh
-# Verify install:
-python3 -c "import tensorflow as tf; print(tf.config.list_physical_devices('GPU'))"
-
-
-###############################################################
-module load cuda-latest/toolkit/11.4.2
-##To check gpu status
-nvidia-smi
-pip install nvidia-cudnn-cu11==8.6.0.163
-
-mkdir -p $CONDA_PREFIX/etc/conda/activate.d
-
-echo 'CUDNN_PATH=$(dirname $(python -c "import nvidia.cudnn;print(nvidia.cudnn.__file__)"))' >> $CONDA_PREFIX/etc/conda/activate.d/env_vars.sh
-
-echo 'export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CONDA_PREFIX/lib/:$CUDNN_PATH/lib' >> $CONDA_PREFIX/etc/conda/activate.d/env_vars.sh
-
-source $CONDA_PREFIX/etc/conda/activate.d/env_vars.sh
-
-pip install tensorflow==2.12
-
-###to delete unwanted jupyter kernel
-jupyter kernelspec list
-jupyter kernelspec uninstall dl_gpu
-
 ##code to check if GPU tensorflow is installed successfully.
 module load Anaconda3/2020.11
 module list
@@ -211,7 +192,7 @@ python3 -c "import tensorflow as tf; print(tf.config.list_physical_devices('GPU'
 python -c “import torch; print(torch.cuda.is_available())”
 ```
 
-## Tips for myself (FarmCPU usage)
+## Tips??
 1. Be careful about GAPIT download.
 ```
 #Select specific R version
@@ -235,12 +216,36 @@ library(GAPIT3)
 
 4. "quota" to check your current storage usage
 
-## For parallele (still in testing, doesn't work for long time...)
-Different methods can fulfile different purposes.
-1. Method1: mclapply
-	ACR_parallel_mcapply.R
-2. Method2: foreach
+5. Some code
+```
+### This just in case, not so helpful.
 
+	interact --account=ece6524-spring2023 --partition=a100_dev_q -N 1 -n 12 --gres=gpu:1
+	conda install -c conda-forge cudatoolkit=11.8.0
+	python3 -m pip install nvidia-cudnn-cu11==8.6.0.163 tensorflow==2.12.*
+	mkdir -p $CONDA_PREFIX/etc/conda/activate.d
+	echo 'CUDNN_PATH=$(dirname $(python -c "import nvidia.cudnn;print(nvidia.cudnn.__file__)"))' >> $CONDA_PREFIX/etc/conda/activate.d/env_vars.sh
+	echo 'export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CONDA_PREFIX/lib/:$CUDNN_PATH/lib' >> $CONDA_PREFIX/etc/conda/activate.d/env_vars.sh
+	source $CONDA_PREFIX/etc/conda/activate.d/env_vars.sh
+	# Verify install:
+	python3 -c "import tensorflow as tf; print(tf.config.list_physical_devices('GPU'))"
+
+--------------------------------------------------
+	module load cuda-latest/toolkit/11.4.2
+	##To check gpu status
+	nvidia-smi
+	pip install nvidia-cudnn-cu11==8.6.0.163
+
+	mkdir -p $CONDA_PREFIX/etc/conda/activate.d
+
+	echo 'CUDNN_PATH=$(dirname $(python -c "import nvidia.cudnn;print(nvidia.cudnn.__file__)"))' >> $CONDA_PREFIX/etc/conda/activate.d/env_vars.sh
+
+	echo 'export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CONDA_PREFIX/lib/:$CUDNN_PATH/lib' >> $CONDA_PREFIX/etc/conda/activate.d/env_vars.sh
+
+	source $CONDA_PREFIX/etc/conda/activate.d/env_vars.sh
+
+	pip install tensorflow==2.12
+```
 ## Ref
 https://medium.com/mlearning-ai/install-tensorflow-on-mac-m1-m2-with-gpu-support-c404c6cfb580
 https://www.nrel.gov/hpc/eagle-interactive-jobs.html
