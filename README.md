@@ -169,6 +169,7 @@ jupyter kernelspec uninstall dl_gpu
 ```
 jobload jobid # To check ur resource usage.
 squeue -u yebi -o "%j" # To check job full name.
+sacct -u yebi --format=JobID,Start,End,Elapsed # To check job status
 ```
 
 ## How to install Pytorch-cuda on ARC.
