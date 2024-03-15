@@ -24,7 +24,7 @@ Workshop from ARC. https://www.docs.arc.vt.edu/usage/workshops.html
 	export TIN1=yebi@tinkercliffs1.arc.vt.edu
 	source .bash_profile 
 	```
-	
+
 	- How to update R codes and files from local computer to cluster.
 		- Copy single file:
 		```scp test.R urid@tinkercliffs1.arc.vt.edu:/folder/position```
