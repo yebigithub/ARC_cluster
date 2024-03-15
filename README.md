@@ -24,6 +24,14 @@ Workshop from ARC. https://www.docs.arc.vt.edu/usage/workshops.html
 	export TIN1=yebi@tinkercliffs1.arc.vt.edu
 	source .bash_profile 
 	```
+	
+	- How to update R codes and files from local computer to cluster.
+		- Copy single file:
+		```scp test.R urid@tinkercliffs1.arc.vt.edu:/folder/position```
+
+		- Copy whole folder: 
+		```scp -r urFolerName urid@tinkercliffs1.arc.vt.edu:/folder/position```
+
 - Method 2 to log in (Works better)  
 	- Click **OnDemand** link: https://ood.arc.vt.edu/pun/sys/dashboard/  
 	- On the top: "Files" --> "HomeDirectory" --> "Open in Terminal"  
@@ -130,14 +138,6 @@ ggsave(file="hp_mpg.pdf",p)
 `ls | wc -l`
 - To see how many files you produced.
 
-```
-## How to update R codes and files from local computer to cluster.
-- Copy single file:
-```scp test.R urid@tinkercliffs1.arc.vt.edu:/folder/position```
-
-- Copy whole folder: 
-```scp -r urFolerName urid@tinkercliffs1.arc.vt.edu:/folder/position```
-```
 
 ## How to use Jupyter notebook on ARC. 
 - [VT_ARC-QuickSetupGuide](https://github.com/yebigithub/ARC_cluster/blob/main/VT_ARC-QuickSetupGuide.pdf)  
