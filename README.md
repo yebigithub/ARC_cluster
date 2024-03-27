@@ -7,6 +7,7 @@ Workshop from ARC. https://www.docs.arc.vt.edu/usage/workshops.html
 - [How to use Jupyter notebook on ARC](#how-to-use-jupyter-notebook-on-arc)
 - [How to install tensorflow-gpu on ARC](#how-to-install-tensorflow-gpu-on-arc)
 - [How to install Pytorch-cuda on ARC.](#how-to-install-pytorch-cuda-on-arc)
+- [Quick cluster tips](#quick-cluster-tips)
 
 ## Steps to install and use R in ARC.
 ### Step1
@@ -166,6 +167,7 @@ jupyter kernelspec list
 jupyter kernelspec uninstall dl_gpu
 ```
 
+### Quick cluster tips
 ```
 jobload jobid # To check ur resource usage.
 squeue -u yebi -o "%j" # To check job full name.
