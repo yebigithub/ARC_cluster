@@ -249,6 +249,19 @@ library(GAPIT3)
 
 	pip install tensorflow==2.12
 ```
+
+
+##Test
+https://github.com/microsoft/vscode-remote-release/issues/1722
+```
+#!/bin/bash
+
+#SBATCH --job-name="tunnel"
+#SBATCH --time=8:00:00     # walltime
+
+/usr/sbin/sshd -D -p 2222 -f /dev/null -h ${HOME}/.ssh/id_ecdsa # uses the user key as the host key
+
+```
 ## Ref
 https://medium.com/mlearning-ai/install-tensorflow-on-mac-m1-m2-with-gpu-support-c404c6cfb580
 https://www.nrel.gov/hpc/eagle-interactive-jobs.html
