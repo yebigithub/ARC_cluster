@@ -16,6 +16,7 @@ jobload jobid # To check ur resource usage.
 squeue -u yebi -o "%j" # To check job full name.
 sacct -u yebi --format=JobID,Start,End,Elapsed # To check job status
 sacct --starttime YYYY-MM-DD --endtime YYYY-MM-DD
+sacct -o JobID,JobName%30,State
 ```
 
 ## Steps to install and use R in ARC.
