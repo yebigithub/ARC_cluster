@@ -202,7 +202,7 @@ python -c “import torch; print(torch.cuda.is_available())”
 ```
 
 ## How to submit python job to ARC.
-- First write your .py file. Here is one example for ResNet50 in tensorflow. [Sample image](yebigithub/ARC_cluster/elephant.jpeg). [Sample code](yebigithub/ARC_cluster/ResNetcode.py)
+- First write your .py file. Here is one example for ResNet50 in tensorflow. [Sample image](./elephant.jpeg). [Sample code](./ResNetcode.py)
 
 ```ResNetcode.py```
 ```
