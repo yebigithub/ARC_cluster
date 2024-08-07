@@ -8,6 +8,7 @@ Workshop from ARC. https://www.docs.arc.vt.edu/usage/workshops.html
 - [How to use Jupyter notebook on ARC](#how-to-use-jupyter-notebook-on-arc)
 - [How to install tensorflow-gpu on ARC](#how-to-install-tensorflow-gpu-on-arc)
 - [How to install Pytorch-cuda on ARC.](#how-to-install-pytorch-cuda-on-arc)
+- [How to submit slurm job to ARC.](#how-to-submit-slurm-job-to-arc)
 
 
 ### Quick cluster tips
@@ -20,8 +21,7 @@ sacct -o JobID,JobName%30,State
 sacct --starttime $(date -d "yesterday 00:00:00" +"%Y-%m-%dT%H:%M:%S") -o JobID,JobName%30,State
 ```
 
-## Steps to install and use R in ARC.
-### Step1
+## Connect your account to ARC
 - Method 1 to log in (Alternative)  
 	- Log into your thinkerclffs account via terminal  
 	```
@@ -52,14 +52,19 @@ sacct --starttime $(date -d "yesterday 00:00:00" +"%Y-%m-%dT%H:%M:%S") -o JobID,
 - Method 3
 	```
 	ssh urid@tinkercliffs1.arc.vt.edu
-	salloc --account=yourallocation --nodes=2 --ntasks-per-node=4 --cpus-per-task=8
+	interact --account=yourallocation --nodes=2 --ntasks-per-node=4 --cpus-per-task=8
 	#interact A yourallocation
 
-	salloc --time=30 --account=<youraccount> --nodes=2
- 	#it will log in one node for u.
+	interact --time=30 --account=<yourallocation> --nodes=2
+ 	#it will log in one node among the two requested for u.
  
 	```	
-### Step2 
+## Steps to install and use R in ARC.
+### Step1 
+Connect your account to ARC. [See here](#connect-your-account-to-arc)
+
+
+### Step2
 *(follow this link: https://www.docs.arc.vt.edu/software/r.html)*
 ```
 module list 
@@ -142,22 +147,25 @@ ggsave(file="hp_mpg.pdf",p)
 - Run this sh file in system and check results later.
 
 ### Step8
-`squeue -u yebi` to check status of your current jobs  
+`squeue -u userid` to check status of your current jobs  
 `scancel jobid` to cancel specific job  
 `squeue -u` can see all the users  
 
-### Step9
-`ls | wc -l`
-- To see how many files you produced.
 
 
 ## How to use Jupyter notebook on ARC. 
 - [VT_ARC-QuickSetupGuide](https://github.com/yebigithub/ARC_cluster/blob/main/VT_ARC-QuickSetupGuide.pdf)  
 This file is pretty useful for starting your jupyter notebook in ARC, thanks for the help from my peers in Deep Learning (2023 Fall ECE 6524)🌟🔥
 
+```
+###to delete unwanted jupyter kernel
+jupyter kernelspec list
+jupyter kernelspec uninstall dl_gpu
+```
+
 ## How to install tensorflow-gpu on ARC.
 ```
-## on TC for a100 nodes:
+##on a100 nodes:
 interact --account=multiomicquantgen --partition=a100_normal_q -N 1 -n 12 --gres=gpu:1
 module load Anaconda3/2020.11
 module list ## make sure cuda is loaded if you are using the GPU
@@ -172,11 +180,6 @@ python -c "import tensorflow as tf; print(tf.config.list_physical_devices('GPU')
 python -c "import tensorflow as tf; print('Num of GPU:', len(tf.config.list_physical_devices('GPU')))"
 ```
 
-```
-###to delete unwanted jupyter kernel
-jupyter kernelspec list
-jupyter kernelspec uninstall dl_gpu
-```
 
 
 ## How to install Pytorch-cuda on ARC.
@@ -195,6 +198,69 @@ python3 -c "import tensorflow as tf; print(tf.config.list_physical_devices('GPU'
 
 ##To test if torch cuda works
 python -c “import torch; print(torch.cuda.is_available())”
+```
+
+## How to submit python job to ARC.
+- First write your .py file. Here is one example for ResNet50 in tensorflow. [Sample image](yebigithub/ARC_cluster/elephant.jpeg). [Sample code](yebigithub/ARC_cluster/ResNetcode.py)
+
+```ResNetcode.py```
+```
+import keras
+from keras.applications.resnet50 import ResNet50, preprocess_input, decode_predictions
+import numpy as np
+
+# Load the model
+model = ResNet50(weights='imagenet')
+
+# Load and preprocess the image
+img_path = 'elephant.jpeg'
+img = keras.utils.load_img(img_path, target_size=(224, 224))
+x = keras.utils.img_to_array(img)
+x = np.expand_dims(x, axis=0)
+x = preprocess_input(x)
+
+# Perform the prediction
+preds = model.predict(x)
+
+# Decode the predictions into a list of tuples (class, description, probability)
+decoded_preds = decode_predictions(preds, top=3)[0]
+
+# Print the predictions
+print('Predicted:', decoded_preds)
+
+# Save the predictions to a text file
+output_file = 'predictions.txt'
+with open(output_file, 'w') as file:
+    file.write('Predicted:\n')
+    for class_id, description, score in decoded_preds:
+        file.write(f'{class_id}: {description} ({score:.4f})\n')
+
+print(f'Predictions saved to {output_file}')
+```
+
+- Following is the example .sh file ```run.sh``` for your to submit job. To submit it, simply run ```sbatch run.sh```
+
+```run.sh```
+```
+#!/bin/bash
+
+#SBATCH --job-name=ResNet50
+#SBATCH -N 2
+#SBATCH -n 6
+#SBATCH --gres=gpu:2
+#SBATCH -t 4:00:00
+#SBATCH -p dgx_normal_q
+#SBATCH -A animalcv    
+#SBATCH --mem=60G 
+
+module load apps site/tinkercliffs/easybuild/setup
+module load Anaconda3/2024.02-1
+source activate tf_gpu
+module list
+
+python ResNetcode.py
+
+exit;
 ```
 
 ## Tips??
