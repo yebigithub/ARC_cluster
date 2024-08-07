@@ -4,6 +4,7 @@ Workshop from ARC. https://www.docs.arc.vt.edu/usage/workshops.html
 
 ## Cotent
 - [Quick cluster tips](#quick-cluster-tips)
+- [Connect your account to ARC](#connect-your-account-to-arc)
 - [Steps to install and use R in ARC](#steps-to-install-and-use-r-in-arc).
 - [How to use Jupyter notebook on ARC](#how-to-use-jupyter-notebook-on-arc)
 - [How to install tensorflow-gpu on ARC](#how-to-install-tensorflow-gpu-on-arc)
